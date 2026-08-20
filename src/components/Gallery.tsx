@@ -30,6 +30,8 @@ export function Gallery() {
     };
   }, [index, close, prev, next]);
 
+  const current = index === null ? null : photos[index];
+
   return (
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
