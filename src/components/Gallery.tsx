@@ -51,7 +51,7 @@ export function Gallery() {
         ))}
       </div>
 
-      {index !== null && (
+      {current && (
         <div
           role="dialog"
           aria-modal="true"
@@ -60,7 +60,7 @@ export function Gallery() {
         >
           <div className="flex items-center justify-between text-background">
             <span className="text-sm tracking-widest">
-              {index + 1} / {photos.length}
+              {(index ?? 0) + 1} / {photos.length}
             </span>
             <button
               type="button"
@@ -82,8 +82,8 @@ export function Gallery() {
               <ChevronLeft className="size-7" />
             </button>
             <img
-              src={photos[index].src}
-              alt={photos[index].alt}
+              src={current.src}
+              alt={current.alt}
               className="max-h-full max-w-full rounded-sm object-contain"
             />
             <button
@@ -95,7 +95,7 @@ export function Gallery() {
               <ChevronRight className="size-7" />
             </button>
           </div>
-          <p className="pt-3 text-center text-xs text-background/70">{photos[index].alt}</p>
+          <p className="pt-3 text-center text-xs text-background/70">{current.alt}</p>
         </div>
       )}
     </>
